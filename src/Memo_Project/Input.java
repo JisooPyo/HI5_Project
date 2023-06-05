@@ -13,9 +13,11 @@ public class Input {
         String name = sc.nextLine();
         String password = sc.nextLine();
         checkNamePassword( name, password );
+
         System.out.println( "메모를 입력해 주세요." );
         String note = sc.nextLine();
-//        inputnote = checkNote( note );
+        note = checkNote( note );
+
         String date = ZonedDateTime.now().toString();
         Memo memo = new Memo( number, name, password, note, date );
         number++;
@@ -38,26 +40,21 @@ public class Input {
         }
     }
 
-//    public String checkNote( String note ) {
-//        System.out.println( "메모를 확인해 주세요." );
-//        System.out.println( note );
-//        System.out.println( "메모를 저장하시려면 1번, 메모를 다시 쓰려면 2번을 눌러 주세요." );
-//        int n = sc.nextInt();
-//        String enter = sc.nextLine();
-//        if ( n == 1 ) {
-//            return note;
-//        } else if ( n == 2 ) {
-//            return checkNote( note );
-//        } else {
-//            System.out.println( "잘못된 값을 입력하였습니다. " );
-//            return checkNote( note );
-//        }
-//
-//    }
-
-    public void checkNote( String note ) {
+    public String checkNote( String note ) {
+        System.out.println( "메모를 확인해 주세요." );
+        System.out.println( note );
+        System.out.println( "메모를 저장하시려면 1번, 메모를 다시 쓰려면 2번을 눌러 주세요." );
+        int n = sc.nextInt();
+        String enter = sc.nextLine();
+        if ( n == 1 ) {
+            return note;
+        } else if ( n == 2 ) {
+            return checkNote( note );
+        } else {
+            System.out.println( "잘못된 값을 입력하였습니다. " );
+            return checkNote( note );
+        }
 
     }
-
 
 }
