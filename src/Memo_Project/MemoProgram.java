@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class MemoProgram {
     Delete delete = new Delete();
-    Amend amend = new Amend();
+    Amend Amend = new Amend();
+
+    Input Input = new Input();
+
+    List List = new List();
 
     Scanner sc = new Scanner( System.in );
 
@@ -18,13 +22,13 @@ public class MemoProgram {
         int n = sc.nextInt();
         switch ( n ){
             case 1:{
-
+                Input.input();
             }
             case 2:{
-
+                List.memoList();
             }
             case 3:{
-                amend.amend();
+                Amend.amend();
             }
             case 4:{
                 delete();

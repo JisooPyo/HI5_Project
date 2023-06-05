@@ -1,7 +1,7 @@
-package Memo.Project;
+package Memo_Project;
 
 import java.util.Scanner;
-public class Input { Complexity is 3 Everything is cool!
+public class Input { //Complexity is 3 Everything is cool!
 
         int number = 1;
 
