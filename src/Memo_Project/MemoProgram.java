@@ -1,3 +1,5 @@
+package Memo_Project;
+
 import java.util.Scanner;
 
 public class MemoProgram {
@@ -24,10 +26,10 @@ public class MemoProgram {
                 Amend amend = new Amend();
             }
             case 4:{
-
+                delete();
             }
             case 5:{
-                delete();
+                offMemo();
             }
             default:{
                 System.out.println("잘못된 선택입니다. 다시 선택해 주세요.\n");
@@ -42,6 +44,10 @@ public class MemoProgram {
     public void delete() {
         delete.delete();
         onMemo();
+    }
+
+    public void offMemo(){
+        System.out.println("메모장을 종료합니다.");
     }
 
 }
