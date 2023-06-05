@@ -5,8 +5,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class List {
+<<<<<<< HEAD
     //arrayList.addAll(Memo);
     Scanner sc = new Scanner(System.in);
+=======
+        private int noteLength = 0;
+        private final GetMemoList[] getMemoLists;
+        private final int NOTE_SIZE = 20;
+>>>>>>> master
 
     public void memoList(){
         ArrayList memoList = new ArrayList<String>();

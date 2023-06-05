@@ -4,12 +4,18 @@ import java.util.Scanner;
 
 public class MemoProgram {
     Delete delete = new Delete();
+<<<<<<< HEAD
     Amend Amend = new Amend();
 
     Input Input = new Input();
 
     List List = new List();
 
+=======
+    Amend amend = new Amend();
+    Input input = new Input();
+    List list = new List();
+>>>>>>> master
     Scanner sc = new Scanner( System.in );
 
     public void onMemo() {
@@ -22,6 +28,7 @@ public class MemoProgram {
         int n = sc.nextInt();
         switch ( n ){
             case 1:{
+<<<<<<< HEAD
                 Input.input();
             }
             case 2:{
@@ -29,6 +36,15 @@ public class MemoProgram {
             }
             case 3:{
                 Amend.amend();
+=======
+                input();
+            }
+            case 2:{
+                printAllnotes();
+            }
+            case 3:{
+                amend();
+>>>>>>> master
             }
             case 4:{
                 delete();
@@ -44,7 +60,20 @@ public class MemoProgram {
         }
     }
 
+    public void input() {
+        input.input();
+        onMemo();
+    }
 
+    public void printAllnotes(){
+//        list.printAllNotes();
+        onMemo();
+    }
+
+    public void amend() {
+        amend.amend();
+        onMemo();
+    }
 
     public void delete() {
         delete.delete();
