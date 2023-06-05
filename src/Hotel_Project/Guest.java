@@ -7,6 +7,8 @@ public class Guest {
     String phoneNumber;
     int money;
 
+    public Guest(){}
+
     public Guest( String name, String phoneNumber, int money ) {
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -14,6 +16,7 @@ public class Guest {
     }
 
     public Guest inputGuest() {
+        // name, phoneNumber, money를 스캐너로 입력 받아 그 특성을 가지는 Guest를 return하세요.
         Scanner sc = new Scanner( System.in );
         String name = sc.nextLine();
         String phoneNumber = sc.nextLine();
@@ -22,7 +25,4 @@ public class Guest {
         return guest;
     }
 
-    public void confirmGuest(){
-
-    }
 }
