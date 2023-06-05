@@ -4,6 +4,7 @@ out/
 !**/src/test/**/out/
 .idea
 HI5_Hotel_Project.iml
+HI5_Project.iml
 
 ### Eclipse ###
 .apt_generated
