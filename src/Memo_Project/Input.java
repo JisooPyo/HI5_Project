@@ -4,9 +4,8 @@ import java.time.ZonedDateTime;
 import java.util.Scanner;
 
 public class Input {
-    private int number = 1;
     Scanner sc = new Scanner( System.in );
-
+    public static int number = 1;
     public Memo input() {
         System.out.println( "이름, 비밀번호, 메모를 입력해 주세요." );
         String name = sc.nextLine();
@@ -15,7 +14,6 @@ public class Input {
         checkInput( name, password, note );
         String date = ZonedDateTime.now().toString();
         Memo memo = new Memo( number, name, password, note, date );
-        number++;
         return memo;
     }
 
