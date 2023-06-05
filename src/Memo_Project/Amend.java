@@ -1,3 +1,5 @@
+package Memo_Project;
+
 public class Amend {
     public Amend(int number){
         if(number.isEmpty()){
