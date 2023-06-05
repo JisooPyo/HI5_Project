@@ -1,25 +1,19 @@
+package Memo.Project;
+
 import java.util.Scanner;
-public class Input {
-    public Memo input() {
+public class Input { Complexity is 3 Everything is cool!
 
-        Scanner scan = new Scanner(System.in);
-        String input = scan.nextLine();
-        int num = Integer.parseInt(input);
-        return Memo(Name, Password, Memo);
-    }
-        System.out.println(num);
+        int number = 1;
 
-        String Name;
-        String Password;
-        String Memo;
-
-        System.out.printf("이름을 입력하세요.%n");
-        Name = scan.nextLine();
-        System.out.printf("비밀번호를 입력하세요.%n");
-        Password = scan.nextLine();
-        System.out.printf("메모를 입력하세요.%n");
-        Memo = scan.nextLine();
-
-
+       public Memo input(){
+           Scanner sc = new Scanner(System.in);
+           System.out.println("이름, 비밀번호, 메모를 입력해 주세요.");
+           String name = sc.nextLine();
+           String password = sc.nextLine();
+           String note = sc.nextLine();
+           String date = "20230606";
+           Memo memo = new Memo(number,name,password,note,date);
+           number++;
+           return memo;
     }
 }
