@@ -44,6 +44,7 @@ public class MemoProgram {
     public void inputScreen() {
         Memo memo = input.input();
         memoList.save(memo);
+        System.out.println("메모 저장이 완료되었습니다!");
         onMemo();
     }
 
