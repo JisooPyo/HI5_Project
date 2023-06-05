@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class List {
-    public static void main(String[] args) {
-        Memo.memoMap memoList = new ArrayList<>();
-        }
-        
         private int noteLength = 0;
         private final GetMemoList[] getMemoLists;
         private final int NOTE_SIZE = 20;
