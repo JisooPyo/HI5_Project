@@ -1,12 +1,12 @@
 import java.util.Scanner;
 public class Input {
     public Memo input() {
-        return Memo(Name, Password, Memo);
-    }
+
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         int num = Integer.parseInt(input);
-
+        return Memo(Name, Password, Memo);
+    }
         System.out.println(num);
 
         String Name;
