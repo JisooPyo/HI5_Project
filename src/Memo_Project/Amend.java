@@ -11,13 +11,11 @@ public class Amend {
     String editMemo;
     String password;
 
-    SimpleDateFormat date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 날짜 시간 형식 포맷
 
-    Date now = new Date();
+    Date now = new Date();  //
 
     String date = date1.format(now);
-
-    int failCount = 0;
 
     public void amend(){
 
