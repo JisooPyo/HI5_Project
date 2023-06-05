@@ -21,7 +21,7 @@ public class MemoProgram {
 
             }
             case 3:{
-
+                Amend amend = new Amend();
             }
             case 4:{
 
