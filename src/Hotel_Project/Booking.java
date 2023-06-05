@@ -26,11 +26,12 @@ public class Booking {
     }
 
 
-    /////////////////////////// 행복님 구현부 //////////////////////////////
+    /////////////////////////// 행복님 구현부 /////////////////////////////////////////////
     public Booking makeBooking( Guest guest ) {
         // 매개변수로 들어온 Guest와 손님이 고른 Room을 받아서
         // Booking 객체를 만들어 return하는 메서드
 
+        // 남은 객실의 수는 mapRoom에서 Queue<Room> 의 size 를 이용하면 될 것 같습니다.
         String date = ZonedDateTime.now().toString();
         Queue<Room> pickRoom = mapRoom.get( 2 ); // 2 대신 고른 room이 들어가야 함.
         Room room = pickRoom.peek();
@@ -42,7 +43,7 @@ public class Booking {
 //        mapRoom.put(2,pickRoom);
 
         // 이런식으로 객실에서 하나 빼주기
-        // 예약 객체 생성
+        // 예약 객체 리턴.
         return booking;
 
     }
@@ -50,7 +51,7 @@ public class Booking {
 
 
 
-    ///////////////////////// 채원님 구현부 ////////////////////////////
+    ///////////////////////// 채원님 구현부 ////////////////////////////////////////////////
 
     public void showBookingToManager() {
         //bookingList 이용해서 for문 만들어서 출력하기. - 채원님
@@ -60,7 +61,7 @@ public class Booking {
 
 
 
-    ////////////////////////// 지수 구현부//////////////////////
+    ////////////////////////// 지수 구현부/////////////////////////////////////////////////
 
     public void showBookingToGuest() {
         // mapGuest를 이용하여 idNumber에 맞는 Value값(Booking)을 찾아옵니다.
