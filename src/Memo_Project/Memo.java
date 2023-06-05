@@ -9,8 +9,8 @@ public class Memo {
     String password;
     String note;
     String date;
-    static Map< Integer, String > mapPassword = new HashMap<>();
-    static Map< Integer, Memo > mapMemo = new HashMap<>();
+    public static Map< Integer, String > mapPassword = new HashMap<>();
+    public static Map< Integer, Memo > mapMemo = new HashMap<>();
 
     public Memo( int number, String name, String password, String note, String date ) {
         this.number = number;

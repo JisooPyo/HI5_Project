@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class MemoProgram {
     Delete delete = new Delete();
+    Amend amend = new Amend();
 
     Scanner sc = new Scanner( System.in );
 
@@ -23,7 +24,7 @@ public class MemoProgram {
 
             }
             case 3:{
-                Amend amend = new Amend();
+                amend.amend();
             }
             case 4:{
                 delete();

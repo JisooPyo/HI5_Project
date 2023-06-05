@@ -1,25 +1,15 @@
-import java.util.Scanner;
-
 package Memo_Project;
 
-public class Amend {
-    public Amend(int number){
-        if(number.isEmpty()){
-            System.out.println("수정할 글이 존재하지 않습니다.");
-        } else{
-            System.out.println("수정 글 존재");
-        }
+import java.util.Scanner;
 
 public class Amend {
     Scanner sc = new Scanner(System.in);
-
     static Integer mNumber; // 수정할 메모의 번호
-
     String editMemo;
-
     String password;
-    public Amend(){
-        if(Memo.mapMemo.size() == 0){ //mapMemo 의 사이즈가 0일경우 데이터가 없으니 수정 할 내용이 없음
+    public void amend(){
+
+        if( Memo.mapMemo.size() == 0){ //mapMemo 의 사이즈가 0일경우 데이터가 없으니 수정 할 내용이 없음
             System.out.println("수정할 메모가 존재하지 않는다.");
         }else{  // 데이터가 있을경우 데이터 조회 후 수정 할 메모 선택
             System.out.println("수정할 메모 존재");
@@ -46,7 +36,10 @@ public class Amend {
             System.out.print("수정 할 내용을 입력하세요 : ");
             sc.nextLine(); // 개행 문자 제거
             editMemo = sc.nextLine();
-            Memo.mapMemo.put(mNumber,editMemo);
+
+            // 메모 자체를 불러와서 memo.set으로 note set하고 나서 put value에는 Memo타입의 객체를 넣어야 합니다..!
+
+//            Memo.mapMemo.put(mNumber,editMemo);
             listMemo();
         }else{
             System.out.println("비밀먼호가 일치하지 않습니다.");
@@ -55,8 +48,8 @@ public class Amend {
 
     public void listMemo(){    // 메모 조회
         for(Integer key : Memo.mapMemo.keySet()){  // 메모 조회
-            String value = Memo.mapMemo.get(key);
-            System.out.println(key + ". " + value );
+            Memo memo = Memo.mapMemo.get(key);
+            System.out.println(key + ". " + memo.note );
         }
     }
 
