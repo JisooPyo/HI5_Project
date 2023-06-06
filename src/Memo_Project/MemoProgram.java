@@ -22,7 +22,7 @@ public class MemoProgram {
                 inputScreen();
             }
             case 2: {
-                printAllnotes();
+                printAllNotes();
             }
             case 3: {
                 amendScreen();
@@ -49,8 +49,8 @@ public class MemoProgram {
         onMemo();
     }
 
-    public void printAllnotes() {
-//        list.printAllNotes();
+    public void printAllNotes() {
+        memoList.getMemoList();
         onMemo();
     }
 
