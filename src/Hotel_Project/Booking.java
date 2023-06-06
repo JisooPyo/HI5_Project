@@ -5,12 +5,12 @@ import java.time.ZonedDateTime;
 import java.util.*;
 
 public class Booking {
-    String date;
     Guest guest;
     Room room;
     Integer idNumber = 1000;
     Hotel hotel = new Hotel();
     Map< Integer, Queue< Room > > mapRoom = hotel.makeMapRoom();
+    // Integer에는 idNumber가 들어갑니다.
     Map< Integer, Booking > mapGuest = new HashMap<>();
     // Integer에는 idNumber가 들어갑니다.
     List< Booking > bookingList = new ArrayList<>();
@@ -18,8 +18,7 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking( String date, Guest guest, Room room, Integer idNumber ) {
-        this.date = date;
+    public Booking( Guest guest, Room room, Integer idNumber ) {
         this.guest = guest;
         this.room = room;
         this.idNumber = idNumber;
@@ -32,12 +31,11 @@ public class Booking {
         // Booking 객체를 만들어 return하는 메서드
 
         // 남은 객실의 수는 mapRoom에서 Queue<Room> 의 size 를 이용하면 될 것 같습니다.
-        String date = ZonedDateTime.now().toString();
-        Queue<Room> pickRoom = mapRoom.get( 2 ); // 2 대신 고른 room이 들어가야 함.
+
+        Queue< Room > pickRoom = mapRoom.get( 2 ); // 2 대신 고른 room이 들어가야 함.
         Room room = pickRoom.peek();
         Guest g = guest;
-        Booking booking = new Booking( date, g, room, idNumber );
-        this.idNumber = this.idNumber.intValue() + 1;
+        Booking booking = new Booking( g, room, idNumber );
 
 //        pickRoom.poll();
 //        mapRoom.put(2,pickRoom);
@@ -49,16 +47,12 @@ public class Booking {
     }
 
 
-
-
     ///////////////////////// 채원님 구현부 ////////////////////////////////////////////////
 
     public void showBookingToManager() {
         //bookingList 이용해서 for문 만들어서 출력하기. - 채원님
 
     }
-
-
 
 
     ////////////////////////// 지수 구현부/////////////////////////////////////////////////
@@ -70,6 +64,7 @@ public class Booking {
         // 1번을 선택하면 메서드종료(BookProgram 클래스로 돌아가고 메인메뉴로 돌아갑니다.)
         // 2번을 선택하면 예약을 취소할지 물어보고 1. 취소 2. 취소 안함
         // 1번을 선택하면 예약 취소 -> mapRoom 추가, mapGuest 빼기, bookingList 빼기
+
 
     }
 }
