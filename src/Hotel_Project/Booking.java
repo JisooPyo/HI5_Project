@@ -1,7 +1,5 @@
 package Hotel_Project;
 
-import java.awt.print.Book;
-import java.time.ZonedDateTime;
 import java.util.*;
 
 public class Booking {
@@ -11,7 +9,7 @@ public class Booking {
     Hotel hotel = new Hotel();
     Map< Integer, Queue< Room > > mapRoom = hotel.makeMapRoom();
     // Integer에는 1,2,3,4가 들어갑니다.
-    Map< Integer, Booking > mapGuest = new HashMap<>();
+    Map< Integer, Booking > mapBooking = new HashMap<>();
     // Integer에는 idNumber가 들어갑니다.
     List< Booking > bookingList = new ArrayList<>();
 
@@ -64,7 +62,33 @@ public class Booking {
         // 1번을 선택하면 메서드종료(BookProgram 클래스로 돌아가고 메인메뉴로 돌아갑니다.)
         // 2번을 선택하면 예약을 취소할지 물어보고 1. 취소 2. 취소 안함
         // 1번을 선택하면 예약 취소 -> mapRoom 추가, mapGuest 빼기, bookingList 빼기
+        if ( bookingList.size() == 0 ) {
+            System.out.println( "예약현황이 없습니다." );
+            System.out.println( "메인화면으로 돌아갑니다.\n" );
+            return;
+        }
+        System.out.println( "[ 예약조회 ] ( 고객용 )\n" );
+        System.out.println( "예약조회를 위해 idNumber가 필요합니다." );
+        System.out.println( "idNumber을 입력해주세요." );
 
+        Scanner sc = new Scanner( System.in );
+        Integer inputIdNum = Integer.valueOf( sc.nextLine() );
+        if ( !mapBooking.keySet().contains( inputIdNum ) ) {
+            System.out.println( "ID에 맞는 예약 현황이 없습니다." );
+            System.out.println( "메인 화면으로 돌아갑니다.\n" );
+            return;
+        }
+        cancelBookingcheck( inputIdNum );
 
+    }
+
+    public void cancelBookingcheck( Integer inputIdnum ) {
+        System.out.println( "[ 예약현황 ]" );
+        System.out.println( "예약번호 : " + inputIdnum );
+        System.out.println( "이름 : " + mapBooking.get( inputIdnum ) );
+        System.out.println( "연락처 : " );
+        System.out.println( "예약날짜 : " );
+        System.out.println( "객실크기 : \n" );
+        System.out.println( "1. 메인메뉴 / 2. 예약 취소" );
     }
 }
