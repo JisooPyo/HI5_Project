@@ -61,6 +61,8 @@ public class Booking {
         // idNumber가 일치하면 [예약 현황]을 보여주고 1. 메인메뉴 2. 예약취소를 출력합니다.
         // 2번을 선택하면 예약을 취소할지 물어보고 1. 취소 2. 취소 안함
         // 1번을 선택하면 예약 취소 -> mapRoom 추가, mapBooking 빼기, bookingList 빼기
+
+        // bookingList가 비어있을 경우 예약현황이 없음을 알려주고 메인화면으로 돌아갑니다.
         if ( bookingList.size() == 0 ) {
             System.out.println( "예약현황이 없습니다." );
             System.out.println( "메인화면으로 돌아갑니다.\n" );
@@ -70,6 +72,9 @@ public class Booking {
         System.out.println( "예약조회를 위해 idNumber가 필요합니다." );
         System.out.println( "idNumber을 입력해주세요." );
 
+        // 입력받은 idNumber에 따른 선택지입니다.
+        // idNumber에 맞는 예약 현황이 있는 경우 예약 현황을 보여주는 bookingCheck() 메서드로 넘어가고,
+        // 맞지 않을 경우 메인 화면으로 돌아갑니다.
         Integer inputIdNum = Integer.valueOf( sc.next() );
         if ( !mapBooking.keySet().contains( inputIdNum ) ) {
             System.out.println( "ID에 맞는 예약 현황이 없습니다." );
@@ -81,6 +86,7 @@ public class Booking {
     }
 
     public void bookingCheck( Integer inputIdnum ) {
+        // mapBooking.get( inputIdnum ) 을 통해 Booking 객체를 얻어와 그에 대한 정보를 출력.
         System.out.println( "[ 예약현황 ]\n" );
         System.out.println( "예약번호 : " + inputIdnum );
         System.out.println( "이름 : " + mapBooking.get( inputIdnum ).guest.name );
@@ -89,6 +95,8 @@ public class Booking {
         System.out.println( "객실크기 : \n" + mapBooking.get( inputIdnum ).room.size );
         System.out.println( "1. 메인메뉴 / 2. 예약 취소" );
 
+        // 1을 누르면 메인메뉴로 돌아가고
+        // 2를 누르면 예약 취소가 가능한 cancelBookingCheck() 메서드로 넘어갑니다.
         int cancelBooking = sc.nextInt();
         String enter = sc.nextLine();
 
@@ -115,14 +123,19 @@ public class Booking {
         String enter = sc.nextLine();
         switch ( cancelPick ) {
             case 1: {
-                //mapRoom 추가, mapBooking 빼기, bookingList 빼기
+                // 예약이 취소되었으므로
+                // 예약한 방을 다시 mapRoom에 추가해줍니다.
+                // bookingList에서 Booking 객체를 제거합니다.
+                // mapBooking에서 Key값이 idNumber인 Booking을 제거합니다.
                 String roomSize = mapBooking.get( inputIdNum ).room.size;
                 int roomPrice = mapBooking.get( inputIdNum ).room.price;
                 mapRoom.get( getRoomNumber( roomSize ) ).add( new Room( roomSize, roomPrice ) );
-                // bookingList 잘 지워지는지 체크해봐야 함.
+                //////////////////////////////////////////////
+                // bookingList 잘 지워지는지 체크해봐야 함. //
+                //////////////////////////////////////////////
                 bookingList.remove( mapBooking.get( inputIdNum ) );
                 mapBooking.remove( inputIdNum );
-                System.out.println("예약이 성공적으로 취소되었습니다.\n");
+                System.out.println( "예약이 성공적으로 취소되었습니다.\n" );
                 return;
             }
             case 2: {
@@ -139,6 +152,7 @@ public class Booking {
     }
 
     public Integer getRoomNumber( String size ) {
+        // size를 입력받아 size에 맞는 mapRoom의 key값을 알려주는 메서드.
         if ( size.equals( "single" ) ) {
             return 1;
         } else if ( size.equals( "double" ) ) {
