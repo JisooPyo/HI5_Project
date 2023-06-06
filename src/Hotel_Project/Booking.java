@@ -10,7 +10,7 @@ public class Booking {
     Integer idNumber = 1000;
     Hotel hotel = new Hotel();
     Map< Integer, Queue< Room > > mapRoom = hotel.makeMapRoom();
-    // Integer에는 idNumber가 들어갑니다.
+    // Integer에는 1,2,3,4가 들어갑니다.
     Map< Integer, Booking > mapGuest = new HashMap<>();
     // Integer에는 idNumber가 들어갑니다.
     List< Booking > bookingList = new ArrayList<>();
