@@ -28,12 +28,14 @@ public class Input {
 
     public Memo input() {
         System.out.println( "이름, 비밀번호를 입력해 주세요." );
+        System.out.println( "이름, 비밀번호, 메모를 입력해 주세요." );
         String name = sc.nextLine();
         String password = sc.nextLine();
         checkNamePassword( name, password );
         System.out.println( "메모를 입력해 주세요." );
         String note = sc.nextLine();
 //        inputnote = checkNote( note );
+        checkInput( name, password, note );
         String date = ZonedDateTime.now().toString();
         Memo memo = new Memo( number, name, password, note, date );
         number++;
@@ -42,20 +44,25 @@ public class Input {
     }
 
     public void checkNamePassword( String name, String password ) {
+    public void checkInput( String name, String password, String note ) {
         System.out.println( "이름 : " + name );
         System.out.println( "비밀번호 : " + password );
+        System.out.println( "메모 : " + note );
         System.out.println( "입력값이 올바르면 1번, 다시 입력하시려면 2번을 입력해 주세요." );
         int n = sc.nextInt();
         String enter = sc.nextLine();
         if ( n == 1 ) {
+
         } else if ( n == 2 ) {
             input();
         } else {
             System.out.println( "잘못된 값을 입력하셨습니다. 다시 입력해 주세요." );
             checkNamePassword( name, password );
+            checkInput( name, password, note );
         }
     }
 
+<<<<<<< HEAD
 //    public String checkNote( String note ) {
 //        System.out.println( "메모를 확인해 주세요." );
 //        System.out.println( note );
@@ -78,5 +85,7 @@ public class Input {
     }
 
 
+>>>>>>> master
+=======
 >>>>>>> master
 }

@@ -14,7 +14,11 @@ public class MemoProgram {
 =======
     Amend amend = new Amend();
     Input input = new Input();
+<<<<<<< HEAD
     List list = new List();
+>>>>>>> master
+=======
+    MemoList memoList = new MemoList();
 >>>>>>> master
     Scanner sc = new Scanner( System.in );
 
@@ -26,6 +30,7 @@ public class MemoProgram {
         System.out.println("4. 삭제");
         System.out.println("5. 종료");
         int n = sc.nextInt();
+<<<<<<< HEAD
         switch ( n ){
             case 1:{
 <<<<<<< HEAD
@@ -38,22 +43,35 @@ public class MemoProgram {
                 Amend.amend();
 =======
                 input();
+=======
+        switch ( n ) {
+            case 1: {
+                inputScreen();
+>>>>>>> master
             }
-            case 2:{
+            case 2: {
                 printAllnotes();
             }
+<<<<<<< HEAD
             case 3:{
                 amend();
+>>>>>>> master
+=======
+            case 3: {
+                amendScreen();
 >>>>>>> master
             }
             case 4:{
                 delete();
             }
             case 5:{
+            case 5: {
                 offMemo();
             }
             default:{
                 System.out.println("잘못된 선택입니다. 다시 선택해 주세요.\n");
+            default: {
+                System.out.println( "잘못된 선택입니다. 다시 선택해 주세요.\n" );
                 onMemo();
             }
 
@@ -66,22 +84,27 @@ public class MemoProgram {
     }
 
     public void printAllnotes(){
+    public void printAllnotes() {
 //        list.printAllNotes();
         onMemo();
     }
 
     public void amend() {
+    public void amendScreen() {
         amend.amend();
         onMemo();
     }
 
     public void delete() {
+    public void deleteScreen() {
         delete.delete();
         onMemo();
     }
 
     public void offMemo(){
         System.out.println("메모장을 종료합니다.");
+    public void offMemo() {
+        System.out.println( "메모장을 종료합니다." );
     }
 
 }
