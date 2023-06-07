@@ -72,7 +72,7 @@ public class Guest {
             System.out.println("소지금" + ":" + " " + money + "원");
             System.out.println("예약일" + ":" + " " + date );
             System.out.println();
-            Gue￼st guest = new Guest( name, phoneNumber, date, money);
+            Guest guest = new Guest( name, phoneNumber, date, money);
             return guest;
 
         } else if (confirm==2) {
