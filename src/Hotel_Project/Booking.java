@@ -53,63 +53,41 @@ public class Booking {
         // 방 고르기
         int emptyRoom; // 잔여 룸 수
         int roomPrice; // 룸 가격
-        int finalNumber = 0; //
         String roomSize;
 
-        for ( int i = 1; i < mapRoom.size() + 1; i++ ) {
-            System.out.println( i + ". " + mapRoom.get( i ).peek().size + " | W " + mapRoom.get( i ).peek().price + " | 남은 객실의 수 : " + mapRoom.get( i ).size() );
+        for(int i = 1; i < mapRoom.size()+1; i++) {
+            System.out.println(i + ". " + mapRoom.get(i).peek().size + " | W " + mapRoom.get(i).peek().price +" | 남은 객실의 수 : " + mapRoom.get(i).size());
         }
-//        System.out.println("1. 싱글     | W 100 | 남은 객실의 수 : " + mapRoom.get(1).size());
-//        System.out.println("2. 더블     | W 130 | 남은 객실의 수 : " + mapRoom.get(2).size());
-//        System.out.println("3. 트윈     | W 130 | 남은 객실의 수 : " + mapRoom.get(3).size());
-//        System.out.println("4. 스위트 | W 200 | 남은 객실의 수 : " + mapRoom.get(4).size());
-//        System.out.println(guest.money);
-//        System.out.print("사용하시려는 객실의 사이즈를 선택해 주세요. : ");
-        System.out.print( "방을 선택해 주세요 : " );
-//        sc.nextLine();
+
+        System.out.print("사용하시려는 객실의 사이즈를 선택해 주세요. : ");
+        System.out.print("방을 선택해 주세요 : ");
+
         int chooseRoom = sc.nextInt();
         System.out.println( "방 선택 번호 : " + chooseRoom );
 
-        switch ( chooseRoom ) {
-            case 1:
-                emptyRoom = mapRoom.get( chooseRoom ).size(); // 잔여룸 수
-                roomPrice = hotel.singleQueue().peek().price;  // 가격
-                roomSize = hotel.singleQueue().peek().size; // 방 종류
-                return finalNumber = canBook( chooseRoom, emptyRoom, roomPrice, roomSize, guest );
-            case 2:
-                emptyRoom = mapRoom.get( chooseRoom ).size(); // 잔여룸 수
-                roomPrice = hotel.doubleQueue().peek().price;  // 가격
-                roomSize = hotel.doubleQueue().peek().size; // 방 종류
-                return finalNumber = canBook( chooseRoom, emptyRoom, roomPrice, roomSize, guest );
-            case 3:
-                emptyRoom = mapRoom.get( chooseRoom ).size(); // 잔여룸 수
-                roomPrice = hotel.twinQueue().peek().price;  // 가격
-                roomSize = hotel.twinQueue().peek().size; // 방 종류
-                return finalNumber = canBook( chooseRoom, emptyRoom, roomPrice, roomSize, guest );
-            case 4:
-                emptyRoom = mapRoom.get( chooseRoom ).size(); // 잔여룸 수
-                roomPrice = hotel.suiteQueue().peek().price;  // 가격
-                roomSize = hotel.suiteQueue().peek().size; // 방 종류
-                return finalNumber = canBook( chooseRoom, emptyRoom, roomPrice, roomSize, guest );
-            default:
-                System.out.println( "잘못된 선택입니다." );
-                System.out.println( "다시 입력해 주세요" );
-                return listRoom( guest );
 
+        if( 1 <= chooseRoom && chooseRoom <=4){
+            emptyRoom = mapRoom.get(chooseRoom).size();
+            roomPrice = mapRoom.get(chooseRoom).peek().price;
+            roomSize = mapRoom.get(chooseRoom).peek().size;
+            return canBook(chooseRoom, emptyRoom, roomPrice, roomSize, guest);
+        }else {
+            System.out.println("잘못된 선택입니다.");
+            System.out.println("다시 입력해 주세요");
+            System.out.println(listRoom(guest));
+            return listRoom(guest);
         }
     }
 
     public int canBook ( int chooseRoom, int emptyRoom, int roomPrice, String roomSize, Guest guest ) {
         // 방 예약
-//        System.out.println(emptyRoom);
-//        System.out.println(roomPrice);
-//        System.out.println(guest.money);
-        if ( emptyRoom > 0 && roomPrice <= guest.money ) {
-            System.out.println( guest.name + " 님의 예약을 확인해 주세요." );
-            System.out.println( "고객명 : " + guest.name );
-            System.out.println( "연락처 : " + guest.phoneNumber );
-            System.out.println( "예약날짜 : " + guest.date );
-            System.out.println( "객실 크기 : " + roomSize );
+
+        if(emptyRoom > 0 && roomPrice <= guest.money){
+            System.out.println(guest.name + " 님의 예약을 확인해 주세요.");
+            System.out.println("고객명 : " + guest.name);
+            System.out.println("연락처 : " + guest.phoneNumber);
+            System.out.println("예약날짜 : " + guest.date);
+            System.out.println("객실 크기 : "  + roomSize);
             System.out.println();
             System.out.print( "예약사항이 맞으면 1번 틀리면 2번을 입력하세요 : " );
             int confirm = sc.nextInt();
