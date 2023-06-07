@@ -15,7 +15,6 @@ public class Guest {
     public Guest( String name, String phoneNumber, String date, int money) {
     
         this.name = name;
-        this.date = date;
         this.phoneNumber = phoneNumber;
         this.date = date;
         this.money = money;
