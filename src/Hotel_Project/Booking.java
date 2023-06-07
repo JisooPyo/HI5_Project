@@ -75,35 +75,28 @@ public class Booking {
                 emptyRoom = mapRoom.get(chooseRoom).size(); // 잔여룸 수
                 roomPrice = hotel.singleQueue().peek().price;  // 가격
                 roomSize = hotel.singleQueue().peek().size; // 방 종류
-                finalNumber = canBook(chooseRoom,emptyRoom, roomPrice,roomSize, guest);
-                break;
+                return finalNumber = canBook(chooseRoom,emptyRoom, roomPrice,roomSize, guest);
             case 2:
                 emptyRoom = mapRoom.get(chooseRoom).size(); // 잔여룸 수
                 roomPrice = hotel.doubleQueue().peek().price;  // 가격
                 roomSize = hotel.doubleQueue().peek().size; // 방 종류
-                finalNumber = canBook(chooseRoom,emptyRoom, roomPrice,roomSize, guest);
-                break;
+                return finalNumber = canBook(chooseRoom,emptyRoom, roomPrice,roomSize, guest);
             case 3:
                 emptyRoom = mapRoom.get(chooseRoom).size(); // 잔여룸 수
                 roomPrice = hotel.twinQueue().peek().price;  // 가격
                 roomSize = hotel.twinQueue().peek().size; // 방 종류
-                finalNumber = canBook(chooseRoom,emptyRoom, roomPrice,roomSize, guest);
-                break;
+                return finalNumber = canBook(chooseRoom,emptyRoom, roomPrice,roomSize, guest);
             case 4:
                 emptyRoom = mapRoom.get(chooseRoom).size(); // 잔여룸 수
                 roomPrice = hotel.suiteQueue().peek().price;  // 가격
                 roomSize = hotel.suiteQueue().peek().size; // 방 종류
-                finalNumber = canBook(chooseRoom,emptyRoom, roomPrice,roomSize, guest);
-                break;
+                return finalNumber = canBook(chooseRoom,emptyRoom, roomPrice,roomSize, guest);
             default :
                 System.out.println("잘못된 선택입니다.");
                 System.out.println("다시 입력해 주세요");
-                listRoom(guest);
-                break;
+                return listRoom(guest);
 
         }
-        System.out.println("마지막으로 반환하는 숫자 : " + finalNumber);
-        return 4;
     }
 
     public int canBook(int chooseRoom, int emptyRoom, int roomPrice,String roomSize, Guest guest ){
@@ -126,13 +119,11 @@ public class Booking {
                 System.out.println("예약 ID : " + idNumber);
                 return chooseRoom;
             }else{
-                listRoom(guest);
+                return listRoom(guest);
                 }
         }else {
-            cantBook(emptyRoom, roomPrice, guest);
+            return cantBook(emptyRoom, roomPrice, guest);
         }
-
-        return chooseRoom;
     }
 
     public int cantBook(int emptyRoom, int roomPrice, Guest guest ){
