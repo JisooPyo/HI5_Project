@@ -7,7 +7,7 @@ public class BookProgram {
     Booking booking = new Booking();
     Scanner sc = new Scanner( System.in );
 
-    public void onProgram() {
+    public void onProgram () {
         System.out.println( "[ HI5 호텔 예약 프로그램 ]\n" );
         System.out.println( "안녕하세요. HI5 호텔입니다." );
         System.out.println( "원하시는 옵션을 선택해 주세요.\n" );
@@ -42,7 +42,7 @@ public class BookProgram {
 
     }
 
-    public void guestScreen() {
+    public void guestScreen () {
         Guest g = guest.inputGuest();
         if ( g == null ) {
             onProgram();
@@ -50,24 +50,25 @@ public class BookProgram {
         bookingScreen( g );
     }
 
-    public void bookingScreen( Guest g ) {
+    public void bookingScreen ( Guest g ) {
         Booking b = booking.makeBooking( g );
         booking.bookingList.add( b );
+        booking.mapBooking.put( b.idNumber, b );
         booking.idNumber++;
         onProgram();
     }
 
-    public void checkBookingManager() {
+    public void checkBookingManager () {
         booking.showBookingToManager();
         onProgram();
     }
 
-    public void checkBookingGuest() {
+    public void checkBookingGuest () {
         booking.showBookingToGuest();
         onProgram();
     }
 
-    public void offProgram() {
+    public void offProgram () {
         System.out.println( "프로그램을 종료합니다." );
     }
 }
