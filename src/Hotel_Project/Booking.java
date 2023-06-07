@@ -53,30 +53,78 @@ public class Booking {
         // 방 고르기
         int emptyRoom; // 잔여 룸 수
         int roomPrice; // 룸 가격
+        int i = 1;
         String roomSize;
 
-        for(int i = 1; i < mapRoom.size()+1; i++) {
-            System.out.println(i + ". " + mapRoom.get(i).peek().size + " | W " + mapRoom.get(i).peek().price +" | 남은 객실의 수 : " + mapRoom.get(i).size());
+
+
+        // for문 으로 반복문 작성
+//        for(i = 1; i < mapRoom.size()+1; i++) {
+//            if(mapRoom.get(i).size() != 0){
+//                System.out.println(i + ". " + mapRoom.get(i).peek().size + " | W " + mapRoom.get(i).peek().price + " | 남은 객실의 수 : " + mapRoom.get(i).size());
+//            }else{
+//                System.out.println(i + "번 객실은 예약이 만료되었습니다. 다른 방을 이용해 주세요.");
+//            }
+//        }
+
+        // while문으로 반복문 작성 형태가 똑같아서 뭐가 좋은지
+        while(i < mapRoom.size()+1){
+            if(mapRoom.get(i).size() != 0){
+                System.out.println(i + ". " + mapRoom.get(i).peek().size + " | W " + mapRoom.get(i).peek().price + " | 남은 객실의 수 : " + mapRoom.get(i).size());
+                i++;
+            }else if(mapRoom.get(i).size() == 0){
+                System.out.println(i + "번 객실은 예약이 만료되었습니다. 다른 방을 이용해 주세요.");
+                i++;
+            }
+              // 모든방 예약이 꽉 찼을 경우
+//            else if(mapRoom.size() == 0 && mapRoom.get(i).size() == 0 ){
+//                System.out.println("모든 방 예약이 끝났습니다.");
+//                i++;
+//            }
         }
 
         System.out.print("사용하시려는 객실의 사이즈를 선택해 주세요. : ");
-        System.out.print("방을 선택해 주세요 : ");
 
         int chooseRoom = sc.nextInt();
-        System.out.println( "방 선택 번호 : " + chooseRoom );
-
-
-        if( 1 <= chooseRoom && chooseRoom <=4){
-            emptyRoom = mapRoom.get(chooseRoom).size();
-            roomPrice = mapRoom.get(chooseRoom).peek().price;
-            roomSize = mapRoom.get(chooseRoom).peek().size;
-            return canBook(chooseRoom, emptyRoom, roomPrice, roomSize, guest);
-        }else {
-            System.out.println("잘못된 선택입니다.");
-            System.out.println("다시 입력해 주세요");
-            System.out.println(listRoom(guest));
-            return listRoom(guest);
+        // switch 문으로 하여 조건에 따른 결과 다르게
+        switch (chooseRoom) {
+            case 1: case 2: case 3: case 4:
+                if(mapRoom.get(chooseRoom).size() != 0){
+                    emptyRoom = mapRoom.get(chooseRoom).size();
+                    roomPrice = mapRoom.get(chooseRoom).peek().price;
+                    roomSize = mapRoom.get(chooseRoom).peek().size;
+                    return canBook(chooseRoom, emptyRoom, roomPrice, roomSize, guest);
+                }else{
+                    System.out.println("잘못된 선택입니다.");
+                    System.out.println("다시 입력해 주세요");
+                    return listRoom(guest);
+                }
+            default:
+                System.out.println("잘못된 선택입니다.");
+                System.out.println("다시 입력해 주세요");
+                return listRoom(guest);
         }
+
+
+        // if문으로 하여 조건에 따라 결과 다르게
+//        if( 1 <= chooseRoom && chooseRoom <=4){
+//            if(mapRoom.get(chooseRoom).size() != 0){
+//                emptyRoom = mapRoom.get(chooseRoom).size();
+//                roomPrice = mapRoom.get(chooseRoom).peek().price;
+//                roomSize = mapRoom.get(chooseRoom).peek().size;
+//                return canBook(chooseRoom, emptyRoom, roomPrice, roomSize, guest);
+//            }else{
+//                System.out.println("잘못된 선택입니다.");
+//                System.out.println("다시 입력해 주세요");
+//                System.out.println(listRoom(guest));
+//                return listRoom(guest);
+//            }
+//        }else {
+//            System.out.println("잘못된 선택입니다.");
+//            System.out.println("다시 입력해 주세요");
+//            System.out.println(listRoom(guest));
+//            return listRoom(guest);
+//        }
     }
 
     public int canBook ( int chooseRoom, int emptyRoom, int roomPrice, String roomSize, Guest guest ) {
@@ -97,6 +145,7 @@ public class Booking {
                 System.out.println( "예약 ID : " + idNumber );
                 return chooseRoom;
             } else {
+                System.out.println("너냐 범인이??");
                 return listRoom( guest );
             }
         } else {

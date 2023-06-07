@@ -40,7 +40,7 @@ public class Guest {
         System.out.println("(소지금의 단위는 '원'입니다. '원'을 제외하고 숫자만 입력해주세요.)");
         System.out.println();
 //        int money = sc.nextInt();
-        int money = 101;
+        int money = 201;
 
         System.out.println();
         System.out.println("======== 원하시는 예약 날짜를 입력해주세요. ========");
