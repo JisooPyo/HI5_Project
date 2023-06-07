@@ -25,25 +25,29 @@ public class Guest {
         Scanner sc = new Scanner( System.in );
         System.out.println("======== 예약하실 분의 성함을 입력해주세요. ========");
         System.out.println();
-        String name = sc.nextLine();
+//        String name = sc.nextLine();
+        String name = "happy";  // 입력 귀찮아서
 
         System.out.println();
         System.out.println("======== 전화번호를 입력해주세요. ========");
         System.out.println("(연락처는 '-'구분없이 숫자만 입력해주세요.)");
         System.out.println();
-        String phoneNumber = sc.nextLine();
+//        String phoneNumber = sc.nextLine();
+        String phoneNumber = "01066139639";
 
         System.out.println();
         System.out.println("======== 소지하고 계신 금액을 입력해주세요. ========");
         System.out.println("(소지금의 단위는 '원'입니다. '원'을 제외하고 숫자만 입력해주세요.)");
         System.out.println();
-        int money = sc.nextInt();
+//        int money = sc.nextInt();
+        int money = 101;
 
         System.out.println();
         System.out.println("======== 원하시는 예약 날짜를 입력해주세요. ========");
         System.out.println("(yyyy/mm/dd의 형식으로 입력해주세요.)");
         System.out.println();
-        String date = sc.next();
+//        String date = sc.next();
+        String date = "2023/06/07";
 
         System.out.println();
         System.out.println("======== 예약하시려는 분의 정보를 확인해주세요. ========");
@@ -60,7 +64,7 @@ public class Guest {
 
         if (confirm==1) {
             System.out.println();
-            System.out.println("======== 예약이 완료되었습니다. 이용해주셔서 감사합니다. ========");
+            System.out.println("======== 예약자 정보 확인 ========");
             System.out.println();
             System.out.println("==== 예약정보 ====");
             System.out.println("이름" + ":" + " " + name);
@@ -68,7 +72,7 @@ public class Guest {
             System.out.println("소지금" + ":" + " " + money + "원");
             System.out.println("예약일" + ":" + " " + date );
             System.out.println();
-            Guest guest = new Guest( name, phoneNumber, date, money);
+            Gue￼st guest = new Guest( name, phoneNumber, date, money);
             return guest;
 
         } else if (confirm==2) {

@@ -53,11 +53,11 @@ public class Hotel {
     }
 
     public Queue< Room > suiteQueue() {
-        Room room1 = new Room( "suite", 130 );
-        Room room2 = new Room( "suite", 130 );
-        Room room3 = new Room( "suite", 130 );
-        Room room4 = new Room( "suite", 130 );
-        Room room5 = new Room( "suite", 130 );
+        Room room1 = new Room( "suite", 200 );
+        Room room2 = new Room( "suite", 200 );
+        Room room3 = new Room( "suite", 200 );
+        Room room4 = new Room( "suite", 200 );
+        Room room5 = new Room( "suite", 200 );
         Queue< Room > suiteQueue = new LinkedList<>();
         suiteQueue.add( room1 );
         suiteQueue.add( room2 );
