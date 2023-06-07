@@ -72,7 +72,7 @@ public class Hotel {
         mapRoom.put( 1, singleQueue() );
         mapRoom.put( 2, doubleQueue() );
         mapRoom.put( 3, twinQueue() );
-        mapRoom.put( 4, doubleQueue() );
+        mapRoom.put( 4, suiteQueue() );
         return mapRoom;
     }
 

@@ -13,16 +13,16 @@ public class Guest {
     public Guest(){}
 
     public Guest( String name, String phoneNumber, String date, int money) {
+    
         this.name = name;
+        this.date = date;
         this.phoneNumber = phoneNumber;
         this.date = date;
         this.money = money;
     }
-
-
     /////////////////////////// 호진님 구현부 /////////////////////////
     public Guest inputGuest() {
-        // name, phoneNumber, money를 스캐너로 입력 받아 그 특성을 가지는 Guest를 return하세요.
+        // name, phoneNumber, money, date를 스캐너로 입력 받아 그 특성을 가지는 Guest를 return.
         Scanner sc = new Scanner( System.in );
         System.out.println("======== 예약하실 분의 성함을 입력해주세요. ========");
         System.out.println();
