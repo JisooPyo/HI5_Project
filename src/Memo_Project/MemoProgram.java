@@ -25,22 +25,28 @@ public class MemoProgram {
         switch ( n ) {
             case 1: {
                 inputScreen();
+                break;
             }
             case 2: {
                 printAllNotes();
+                break;
             }
             case 3: {
                 amendScreen();
+                break;
             }
             case 4: {
                 deleteScreen();
+                break;
             }
             case 5: {
                 offMemo();
+                break;
             }
             default: {
                 System.out.println( "잘못된 선택입니다. 다시 선택해 주세요.\n" );
                 onMemo();
+                break;
             }
 
         }
