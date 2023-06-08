@@ -1,14 +1,16 @@
 package Memo_Project;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Input {
-    SimpleDateFormat date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    Date now = new Date();
-    String date = date1.format( now );
-
+    LocalDate now = LocalDate.now();
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+    String date = now.format(dateFormatter);
     Scanner sc = new Scanner( System.in );
     public static int number = 1;
     public Memo input() {
