@@ -21,7 +21,7 @@ public class MemoList {
                     String date = Memo.mapMemo.get( i ).date;
                     String note = Memo.mapMemo.get( i ).note;
                     System.out.println( number + "번, " + name + "님의 메모입니다." );
-                    System.out.println( "작성일시 : " + date );
+                    System.out.println( "작성일 : " + date );
                     System.out.println( "메모내용 : " );
                     System.out.println( note + "\n" );
                 }
