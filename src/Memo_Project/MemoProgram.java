@@ -9,13 +9,18 @@ public class MemoProgram {
     MemoList memoList = new MemoList();
     Scanner sc = new Scanner( System.in );
 
-    public void onMemo() {
+    public void onMemo () {
         System.out.println( "원하시는 옵션을 선택해 주세요.\n" );
         System.out.println( "1. 입력" );
         System.out.println( "2. 메모 목록 조회" );
         System.out.println( "3. 수정" );
         System.out.println( "4. 삭제" );
         System.out.println( "5. 종료" );
+        if ( !sc.hasNextInt() ) {
+            System.out.println( "잘못된 값을 입력하셨습니다. 다시 선택해 주세요.\n" );
+            String wrongValue = sc.next();
+            onMemo();
+        }
         int n = sc.nextInt();
         switch ( n ) {
             case 1: {
@@ -41,30 +46,30 @@ public class MemoProgram {
         }
     }
 
-    public void inputScreen() {
+    public void inputScreen () {
         Memo memo = input.input();
-        memoList.save(memo);
-        System.out.println("메모 저장이 완료되었습니다!");
+        memoList.save( memo );
+        System.out.println( "메모 저장이 완료되었습니다!" );
         Input.number++;
         onMemo();
     }
 
-    public void printAllNotes() {
+    public void printAllNotes () {
         memoList.getMemoList();
         onMemo();
     }
 
-    public void amendScreen() {
+    public void amendScreen () {
         amend.amend();
         onMemo();
     }
 
-    public void deleteScreen() {
+    public void deleteScreen () {
         delete.delete();
         onMemo();
     }
 
-    public void offMemo() {
+    public void offMemo () {
         System.out.println( "메모장을 종료합니다." );
     }
 

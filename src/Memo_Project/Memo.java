@@ -20,19 +20,4 @@ public class Memo {
         this.date = date;
     }
 
-    public void MapPassword( int number, String password ) {
-        mapPassword.put( number, password );
-    }
-
-    public void MapMemo( int number, Memo memo ) {
-        mapMemo.put( number, memo );
-    }
-
-    public void setName( String name ) {
-        this.name = name;
-    }
-
-    public void setNote( String note ) {
-        this.note = note;
-    }
 }
