@@ -79,6 +79,9 @@ public class Amend {
 //        }
         Integer maxkey = Collections.max(Memo.mapMemo.keySet());  // key값의 맥스를 구하기 위해
         for(int i = 1; i <= maxkey; i++){
+            if(Memo.mapMemo.get(i) == null){
+                continue;
+            }
             System.out.println(i + ". " + Memo.mapMemo.get(i).note + ", 수정 시간 : " + Memo.mapMemo.get(i).date + " " + time);
 
         }
