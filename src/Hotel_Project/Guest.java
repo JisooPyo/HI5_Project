@@ -1,5 +1,6 @@
 package Hotel_Project;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.SimpleTimeZone;
 
@@ -24,9 +25,20 @@ public class Guest {
     public Guest inputGuest() {
         // name, phoneNumber, money, date를 스캐너로 입력 받아 그 특성을 가지는 Guest를 return.
         Scanner sc = new Scanner( System.in );
-        System.out.println("======== 예약하실 분의 성함을 입력해주세요. ========");
-        System.out.println();
-        String name = sc.nextLine();
+            System.out.println("======== 예약하실 분의 성함을 입력해주세요. ========");
+            System.out.println();
+            String name = sc.nextLine();
+
+        while(true) {
+            try {
+
+            } catch (InputMismatchException e) {
+                System.out.println("잘못입력하셨습니다. 올바른 성함을 입력해주세요.");
+                continue;
+            } finally {
+                break;
+            }
+        }
 
         System.out.println();
         System.out.println("======== 전화번호를 입력해주세요. ========");
@@ -84,6 +96,8 @@ public class Guest {
         }
         return null;
     }
+
+
 
     // date 예약날짜를 개인정보 확인 후 입력하려다가 실패했습니다 ㅠ
     /*public Guest inputDate() {
