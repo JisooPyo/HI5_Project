@@ -1,7 +1,12 @@
 package Memo_Project;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -11,11 +16,24 @@ public class Amend {
     String editMemo;
     String password;
 
-    SimpleDateFormat date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 날짜 시간 형식 포맷
+//    SimpleDateFormat date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 날짜 시간 형식 포맷
 
-    Date now = new Date();  //
+    //현재 날짜 구하기
+    LocalDate now = LocalDate.now();
+    //현재 시간 구하기
+    LocalDateTime nowTime = LocalDateTime.now();
 
-    String date = date1.format(now);
+   DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+   DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:SS");
+
+   // 포맷 적용
+   String date = now.format(dateFormatter);
+   String time = nowTime.format(timeFormatter);
+
+//    Date now = new Date();  // 현재 시간을 구할 수 있다.
+
+//    String date = date1.format(now); //현재 시간을 구해서 날짜 시간 패턴에 맞추기
 
     public void amend(){
 
@@ -64,10 +82,21 @@ public class Amend {
     }
 
     public void listMemo(){    // 메모 조회
-        for(Integer key : Memo.mapMemo.keySet()){  // 메모 조회
-            Memo memo = Memo.mapMemo.get(key);
-            System.out.println(key + ". " + memo.note + ", 수정 시간 : "+ memo.date);
+//        for(Integer key : Memo.mapMemo.keySet()){  // 메모 조회
+//            Memo memo = Memo.mapMemo.get(key);
+//            System.out.println(key + ". " + memo.note + ", 수정 시간 : "+ memo.date + time);
+//        }
+        Integer maxkey = Collections.max(Memo.mapMemo.keySet());  // key값의 맥스를 구하기 위해
+        for(int i = 1; i <= maxkey; i++){
+            System.out.println(i + ". " + Memo.mapMemo.get(i).note + ", 수정 시간 : " + Memo.mapMemo.get(i).date + " " + time);
         }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("오늘 날짜 : " + date + " 지금 시간 : " + time);
+
+
     }
 
 
