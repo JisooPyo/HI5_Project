@@ -1,18 +1,16 @@
 package Memo_Project;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Input {
     LocalDate now = LocalDate.now();
-    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-    String date = now.format(dateFormatter);
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern( "yyyy/MM/dd" );
+    private String date = now.format( dateFormatter );
     Scanner sc = new Scanner( System.in );
-    public static int number = 1;
+    static int number = 1;
+
     public Memo input() {
         System.out.println( "이름, 비밀번호, 메모를 입력해 주세요." );
         String name = sc.nextLine();
@@ -21,7 +19,7 @@ public class Input {
         return checkInput( name, password, note );
     }
 
-    public Memo checkInput( String name, String password, String note ) {
+    private Memo checkInput( String name, String password, String note ) {
         System.out.println( "이름 : " + name );
         System.out.println( "비밀번호 : " + password );
         System.out.println( "메모 : " + note );
@@ -30,7 +28,7 @@ public class Input {
         int n = sc.nextInt();
         String enter = sc.nextLine();
         if ( n == 1 ) {
-            return new Memo(number,name,password,note,date);
+            return new Memo( number, name, password, note, date );
         } else if ( n == 2 ) {
             return input();
         } else {

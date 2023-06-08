@@ -3,13 +3,13 @@ package Memo_Project;
 import java.util.Scanner;
 
 public class MemoProgram {
-    Delete delete = new Delete();
-    Amend amend = new Amend();
-    Input input = new Input();
-    MemoList memoList = new MemoList();
+    private Delete delete = new Delete();
+    private Amend amend = new Amend();
+    private Input input = new Input();
+    private MemoList memoList = new MemoList();
     Scanner sc = new Scanner( System.in );
 
-    public void onMemo () {
+    public void onMemo() {
         System.out.println( "원하시는 옵션을 선택해 주세요.\n" );
         System.out.println( "1. 입력" );
         System.out.println( "2. 메모 목록 조회" );
@@ -52,7 +52,7 @@ public class MemoProgram {
         }
     }
 
-    public void inputScreen () {
+    private void inputScreen() {
         Memo memo = input.input();
         memoList.save( memo );
         System.out.println( "메모 저장이 완료되었습니다!" );
@@ -60,22 +60,22 @@ public class MemoProgram {
         onMemo();
     }
 
-    public void printAllNotes () {
+    private void printAllNotes() {
         memoList.getMemoList();
         onMemo();
     }
 
-    public void amendScreen () {
+    private void amendScreen() {
         amend.amend();
         onMemo();
     }
 
-    public void deleteScreen () {
+    private void deleteScreen() {
         delete.delete();
         onMemo();
     }
 
-    public void offMemo () {
+    private void offMemo() {
         System.out.println( "메모장을 종료합니다." );
     }
 

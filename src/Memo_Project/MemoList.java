@@ -4,12 +4,12 @@ import java.util.Map;
 
 public class MemoList {
 
-    public void save ( Memo memo ) {
+    void save( Memo memo ) {
         Memo.mapMemo.put( memo.number, memo );
         Memo.mapPassword.put( memo.number, memo.password );
     }
 
-    public void getMemoList () {
+    void getMemoList() {
         if ( Memo.mapMemo.size() == 0 ) {
             System.out.println( "출력할 메모가 없습니다." );
         } else {
@@ -29,7 +29,7 @@ public class MemoList {
         }
     }
 
-    public int maxNum ( Map< Integer, Memo > mapMemo ) {
+    private int maxNum( Map< Integer, Memo > mapMemo ) {
         int maxNum = 0;
         for ( Integer integer : mapMemo.keySet() ) {
             maxNum = Math.max( integer.intValue(), maxNum );
