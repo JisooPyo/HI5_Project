@@ -7,7 +7,7 @@ import java.util.Queue;
 
 public class Hotel {
 
-    public Queue< Room > singleQueue() {
+    private Queue< Room > singleQueue() {
         Room room1 = new Room( "single", 100 );
         Room room2 = new Room( "single", 100 );
         Room room3 = new Room( "single", 100 );
@@ -22,7 +22,7 @@ public class Hotel {
         return singleQueue;
     }
 
-    public Queue< Room > doubleQueue() {
+    private Queue< Room > doubleQueue() {
         Room room1 = new Room( "double", 130 );
         Room room2 = new Room( "double", 130 );
         Room room3 = new Room( "double", 130 );
@@ -37,7 +37,7 @@ public class Hotel {
         return doubleQueue;
     }
 
-    public Queue< Room > twinQueue() {
+    private Queue< Room > twinQueue() {
         Room room1 = new Room( "twin", 130 );
         Room room2 = new Room( "twin", 130 );
         Room room3 = new Room( "twin", 130 );
@@ -52,7 +52,7 @@ public class Hotel {
         return twinQueue;
     }
 
-    public Queue< Room > suiteQueue() {
+    private Queue< Room > suiteQueue() {
         Room room1 = new Room( "suite", 200 );
         Room room2 = new Room( "suite", 200 );
         Room room3 = new Room( "suite", 200 );

@@ -42,7 +42,7 @@ public class BookProgram {
 
     }
 
-    public void guestScreen () {
+    private void guestScreen () {
         Guest g = guest.inputGuest();
         if ( g == null ) {
             onProgram();
@@ -50,7 +50,7 @@ public class BookProgram {
         bookingScreen( g );
     }
 
-    public void bookingScreen ( Guest g ) {
+    private void bookingScreen ( Guest g ) {
         Booking b = booking.makeBooking( g );
         booking.bookingList.add( b );
         booking.mapBooking.put( b.idNumber, b );
@@ -58,17 +58,17 @@ public class BookProgram {
         onProgram();
     }
 
-    public void checkBookingManager () {
+    private void checkBookingManager () {
         booking.showBookingToManager();
         onProgram();
     }
 
-    public void checkBookingGuest () {
+    private void checkBookingGuest () {
         booking.showBookingToGuest();
         onProgram();
     }
 
-    public void offProgram () {
+    private void offProgram () {
         System.out.println( "프로그램을 종료합니다." );
     }
 }
