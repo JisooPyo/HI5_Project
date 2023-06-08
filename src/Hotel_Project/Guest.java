@@ -25,29 +25,25 @@ public class Guest {
         Scanner sc = new Scanner( System.in );
         System.out.println("======== 예약하실 분의 성함을 입력해주세요. ========");
         System.out.println();
-//        String name = sc.nextLine();
-        String name = "happy";  // 입력 귀찮아서
+        String name = sc.nextLine();
 
         System.out.println();
         System.out.println("======== 전화번호를 입력해주세요. ========");
         System.out.println("(연락처는 '-'구분없이 숫자만 입력해주세요.)");
         System.out.println();
-//        String phoneNumber = sc.nextLine();
-        String phoneNumber = "01066139639";
+        String phoneNumber = sc.nextLine();
 
         System.out.println();
         System.out.println("======== 소지하고 계신 금액을 입력해주세요. ========");
         System.out.println("(소지금의 단위는 '원'입니다. '원'을 제외하고 숫자만 입력해주세요.)");
         System.out.println();
-//        int money = sc.nextInt();
-        int money = 201;
+        int money = sc.nextInt();
 
         System.out.println();
         System.out.println("======== 원하시는 예약 날짜를 입력해주세요. ========");
         System.out.println("(yyyy/mm/dd의 형식으로 입력해주세요.)");
         System.out.println();
-//        String date = sc.next();
-        String date = "2023/06/07";
+        String date = sc.next();
 
         System.out.println();
         System.out.println("======== 예약하시려는 분의 정보를 확인해주세요. ========");
