@@ -134,7 +134,6 @@ public class Booking {
             System.out.println(guest.name + " 님의 예약을 확인해 주세요.");
             System.out.println("고객명 : " + guest.name);
             System.out.println("연락처 : " + guest.phoneNumber);
-            System.out.println("예약날짜 : " + guest.date);
             System.out.println("객실 크기 : "  + roomSize);
             System.out.println();
             System.out.print( "예약사항이 맞으면 1번 틀리면 2번을 입력하세요 : " );
@@ -219,7 +218,6 @@ public class Booking {
         System.out.println( "예약번호 : " + inputIdnum );
         System.out.println( "이름 : " + mapBooking.get( inputIdnum ).guest.name );
         System.out.println( "연락처 : " + mapBooking.get( inputIdnum ).guest.phoneNumber );
-        System.out.println( "예약날짜 : " + mapBooking.get( inputIdnum ).guest.date );
         System.out.println( "객실크기 : " + mapBooking.get( inputIdnum ).room.size +"\n");
         System.out.println( "1. 메인메뉴 / 2. 예약 취소" );
 

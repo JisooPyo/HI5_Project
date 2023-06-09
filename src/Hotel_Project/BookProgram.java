@@ -43,7 +43,7 @@ public class BookProgram {
     }
 
     public void guestScreen () {
-        Guest g = guest.inputGuest();
+        Guest g = guest.inputName();
         if ( g == null ) {
             onProgram();
         }
