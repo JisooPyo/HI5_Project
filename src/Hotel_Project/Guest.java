@@ -36,7 +36,7 @@ public class Guest {
             }
     }
 
-    public Guest inputPhonenumber() {
+    private Guest inputPhonenumber() {
         Scanner sc = new Scanner(System.in);
         System.out.println();
         System.out.println( "======== 전화번호를 입력해주세요. ========" );
@@ -52,7 +52,7 @@ public class Guest {
             }
     }
 
-    public Guest inputMoney() {
+    private Guest inputMoney() {
         Scanner sc = new Scanner(System.in);
         System.out.println();
         System.out.println( "======== 소지하고 계신 금액을 입력해주세요. ========" );
@@ -68,7 +68,7 @@ public class Guest {
             }
     }
 
-    public Guest inputConfirm() {
+    private Guest inputConfirm() {
         Scanner sc = new Scanner(System.in);
         System.out.println();
         System.out.println( "======== 예약하시려는 분의 정보를 확인해주세요. ========" );
