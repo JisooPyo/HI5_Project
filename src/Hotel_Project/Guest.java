@@ -12,12 +12,14 @@ public class Guest {
 
     public Guest(){}
 
+
     public Guest( String name, String phoneNumber, int money) {
     
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.money = money;
     }
+
 
     public Guest inputName() {
         Scanner sc = new Scanner(System.in);
