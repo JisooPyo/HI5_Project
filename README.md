@@ -24,7 +24,7 @@
 
 ### 호텔 프로젝트 클래스 다이어그램
 
-![Hotel_lucid_final](https://github.com/JisooPyo/HI5_Project/assets/130378232/02306cc5-4a48-4c7a-9b4c-e48a43cb6388)
+![Hotel_Booking_Project](https://github.com/JisooPyo/HI5_Project/assets/130378232/c0c833dc-fb12-4127-aecf-0872d83565fb)
 
 ---
 
