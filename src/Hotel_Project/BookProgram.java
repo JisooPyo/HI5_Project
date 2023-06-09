@@ -42,30 +42,33 @@ public class BookProgram {
 
     }
 
-    private void guestScreen () {
-        Guest g = guest.inputGuest();
+    public void guestScreen () {
+        Guest g = guest.inputName();
         if ( g == null ) {
             onProgram();
         }
         bookingScreen( g );
     }
 
-    private void bookingScreen ( Guest g ) {
+    public void bookingScreen ( Guest g ) {
         Booking b = booking.makeBooking( g );
+        booking.bookingList.add( b );
+        booking.mapBooking.put( b.idNumber, b );
+        booking.idNumber++;
         onProgram();
     }
 
-    private void checkBookingManager () {
+    public void checkBookingManager () {
         booking.showBookingToManager();
         onProgram();
     }
 
-    private void checkBookingGuest () {
+    public void checkBookingGuest () {
         booking.showBookingToGuest();
         onProgram();
     }
 
-    private void offProgram () {
+    public void offProgram () {
         System.out.println( "프로그램을 종료합니다." );
     }
 }
