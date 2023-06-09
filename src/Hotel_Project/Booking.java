@@ -5,19 +5,19 @@ import java.util.*;
 public class Booking {
     private Guest guest;
     private Room room;
-    Integer idNumber = 1000;
+    String idNumber = UUID.randomUUID().toString();
     private Hotel hotel = new Hotel();
     Scanner sc = new Scanner( System.in );
     private Map< Integer, Queue< Room > > mapRoom = hotel.makeMapRoom();
     // Integer에는 1,2,3,4가 들어갑니다.
-    Map< Integer, Booking > mapBooking = new HashMap<>();
-    // Integer에는 idNumber가 들어갑니다.
+    Map< String, Booking > mapBooking = new HashMap<>();
+    // String에는 idNumber가 들어갑니다.
     List< Booking > bookingList = new ArrayList<>();
 
-    public Booking () {
+    public Booking() {
     }
 
-    public Booking ( Guest guest, Room room, Integer idNumber ) {
+    public Booking( Guest guest, Room room, String idNumber ) {
         this.guest = guest;
         this.room = room;
         this.idNumber = idNumber;
@@ -25,7 +25,7 @@ public class Booking {
 
 
     /////////////////////////// 행복님 구현부 /////////////////////////////////////////////
-    public Booking makeBooking ( Guest guest ) {
+    public Booking makeBooking( Guest guest ) {
         // 매개변수로 들어온 Guest와 손님이 고른 Room을 받아서
         // Booking 객체를 만들어 return하는 메서드
 
@@ -45,17 +45,18 @@ public class Booking {
 
         // 이런식으로 객실에서 하나 빼주기
         // 예약 객체 리턴.
+        bookingList.add( booking );
+        mapBooking.put( idNumber, booking );
         return booking;
 
     }
 
-    private int listRoom ( Guest guest ) {
+    private int listRoom( Guest guest ) {
         // 방 고르기
         int emptyRoom; // 잔여 룸 수
         int roomPrice; // 룸 가격
         int i = 1;
         String roomSize;
-
 
 
         // for문 으로 반복문 작성
@@ -68,41 +69,41 @@ public class Booking {
 //        }
 
         // while문으로 반복문 작성 형태가 똑같아서 뭐가 좋은지
-        while(i < mapRoom.size()+1){
-            if(mapRoom.get(i).size() != 0){
-                System.out.println(i + ". " + mapRoom.get(i).peek().size + " | W " + mapRoom.get(i).peek().price + " | 남은 객실의 수 : " + mapRoom.get(i).size());
+        while ( i < mapRoom.size() + 1 ) {
+            if ( mapRoom.get( i ).size() != 0 ) {
+                System.out.println( i + ". " + mapRoom.get( i ).peek().size + " | W " + mapRoom.get( i ).peek().price + " | 남은 객실의 수 : " + mapRoom.get( i ).size() );
                 i++;
-            }else if(mapRoom.get(i).size() == 0){
-                System.out.println(i + "번 객실은 예약이 만료되었습니다. 다른 방을 이용해 주세요.");
+            } else if ( mapRoom.get( i ).size() == 0 ) {
+                System.out.println( i + "번 객실은 예약이 만료되었습니다. 다른 방을 이용해 주세요." );
                 i++;
             }
-              // 모든방 예약이 꽉 찼을 경우
+            // 모든방 예약이 꽉 찼을 경우
 //            else if(mapRoom.size() == 0 && mapRoom.get(i).size() == 0 ){
 //                System.out.println("모든 방 예약이 끝났습니다.");
 //                i++;
 //            }
         }
 
-        System.out.print("사용하시려는 객실의 사이즈를 선택해 주세요. : ");
+        System.out.print( "사용하시려는 객실의 사이즈를 선택해 주세요. : " );
 
         int chooseRoom = sc.nextInt();
         // switch 문으로 하여 조건에 따른 결과 다르게
-        switch (chooseRoom) {
+        switch ( chooseRoom ) {
             case 1: case 2: case 3: case 4:
-                if(mapRoom.get(chooseRoom).size() != 0){
-                    emptyRoom = mapRoom.get(chooseRoom).size();
-                    roomPrice = mapRoom.get(chooseRoom).peek().price;
-                    roomSize = mapRoom.get(chooseRoom).peek().size;
-                    return canBook(chooseRoom, emptyRoom, roomPrice, roomSize, guest);
-                }else{
-                    System.out.println("잘못된 선택입니다.");
-                    System.out.println("다시 입력해 주세요");
-                    return listRoom(guest);
+                if ( mapRoom.get( chooseRoom ).size() != 0 ) {
+                    emptyRoom = mapRoom.get( chooseRoom ).size();
+                    roomPrice = mapRoom.get( chooseRoom ).peek().price;
+                    roomSize = mapRoom.get( chooseRoom ).peek().size;
+                    return canBook( chooseRoom, emptyRoom, roomPrice, roomSize, guest );
+                } else {
+                    System.out.println( "잘못된 선택입니다." );
+                    System.out.println( "다시 입력해 주세요" );
+                    return listRoom( guest );
                 }
             default:
-                System.out.println("잘못된 선택입니다.");
-                System.out.println("다시 입력해 주세요");
-                return listRoom(guest);
+                System.out.println( "잘못된 선택입니다." );
+                System.out.println( "다시 입력해 주세요" );
+                return listRoom( guest );
         }
 
 
@@ -127,15 +128,15 @@ public class Booking {
 //        }
     }
 
-    private int canBook ( int chooseRoom, int emptyRoom, int roomPrice, String roomSize, Guest guest ) {
+    private int canBook( int chooseRoom, int emptyRoom, int roomPrice, String roomSize, Guest guest ) {
         // 방 예약
 
-        if(emptyRoom > 0 && roomPrice <= guest.money){
-            System.out.println(guest.name + " 님의 예약을 확인해 주세요.");
-            System.out.println("고객명 : " + guest.name);
-            System.out.println("연락처 : " + guest.phoneNumber);
-            System.out.println("예약날짜 : " + guest.date);
-            System.out.println("객실 크기 : "  + roomSize);
+        if ( emptyRoom > 0 && roomPrice <= guest.money ) {
+            System.out.println( guest.name + " 님의 예약을 확인해 주세요." );
+            System.out.println( "고객명 : " + guest.name );
+            System.out.println( "연락처 : " + guest.phoneNumber );
+            System.out.println( "예약날짜 : " + guest.date );
+            System.out.println( "객실 크기 : " + roomSize );
             System.out.println();
             System.out.print( "예약사항이 맞으면 1번 틀리면 2번을 입력하세요 : " );
             int confirm = sc.nextInt();
@@ -145,7 +146,7 @@ public class Booking {
                 System.out.println( "예약 ID : " + idNumber );
                 return chooseRoom;
             } else {
-                System.out.println("너냐 범인이??");
+                System.out.println( "너냐 범인이??" );
                 return listRoom( guest );
             }
         } else {
@@ -153,7 +154,7 @@ public class Booking {
         }
     }
 
-    private int cantBook ( int emptyRoom, int roomPrice, Guest guest ) {
+    private int cantBook( int emptyRoom, int roomPrice, Guest guest ) {
         // 게스트의 소지금, 혹은 호텔 방 부족 문제로 예약 불가 상황
         if ( emptyRoom == 0 ) {  // 선택 한 룸에 방이 없을 경우
             System.out.println( "해당 객실은 현재 이용할 수 없습니다." );
@@ -171,7 +172,7 @@ public class Booking {
     ///////////////////////// 지수구현부.. ////////////////////////////////////////////////
 
 
-    public void showBookingToManager () {
+    public void showBookingToManager() {
         // 예약목록(bookingList)이 비어있으면 메인화면으로 돌아간다.
         if ( bookingList.size() == 0 ) {
             System.out.println( "예약목록이 없습니다." );
@@ -202,13 +203,13 @@ public class Booking {
         }
 
         // 전체 예약 목록을 모두 조회하고 나면 메인화면으로 되돌아간다.
-        System.out.println("메인화면으로 돌아갑니다.");
+        System.out.println( "메인화면으로 돌아갑니다." );
     }
 
 
     ////////////////////////// 지수 구현부/////////////////////////////////////////////////
 
-    public void showBookingToGuest () {
+    public void showBookingToGuest() {
         // 예약목록(bookingList)이 비어있으면 메인화면으로 돌아간다.
         if ( bookingList.size() == 0 ) {
             System.out.println( "예약현황이 없습니다." );
@@ -224,7 +225,7 @@ public class Booking {
         // 입력받은 idNumber에 따른 선택지.
         // idNumber에 맞는 예약 현황이 있는 경우 예약 현황을 보여주는 bookingCheck() 메서드로 넘어가고,
         // 맞지 않을 경우 메인 화면으로 돌아갑니다.
-        Integer inputIdNum = Integer.valueOf( sc.next() );
+        String inputIdNum = sc.next();
         if ( !mapBooking.keySet().contains( inputIdNum ) ) {
             System.out.println( "ID에 맞는 예약 현황이 없습니다." );
             System.out.println( "메인 화면으로 돌아갑니다.\n" );
@@ -233,7 +234,7 @@ public class Booking {
         bookingCheck( inputIdNum );
     }
 
-    private void bookingCheck ( Integer inputIdnum ) {
+    private void bookingCheck( String inputIdnum ) {
         // mapBooking.get( inputIdnum ) 을 통해 Booking 객체를 얻어와 그에 대한 정보를 출력.
         System.out.println( "[ 예약현황 ]\n" );
         System.out.println( "예약번호 : " + inputIdnum );
@@ -265,7 +266,7 @@ public class Booking {
         }
     }
 
-    private void cancelBookingCheck ( Integer inputIdNum ) {
+    private void cancelBookingCheck( String inputIdNum ) {
         System.out.println( "예약을 취소하시겠습니까?" );
         System.out.println( "1. 예 / 2. 아니오" );
         int cancelPick = sc.nextInt();
@@ -308,16 +309,13 @@ public class Booking {
         }
     }
 
-    private Integer getRoomNumber ( String size ) {
+    private Integer getRoomNumber( String size ) {
         // size를 입력받아 size에 맞는 mapRoom의 key값을 알려주는 메서드.
-        if ( size.equals( "single" ) ) {
-            return 1;
-        } else if ( size.equals( "double" ) ) {
-            return 2;
-        } else if ( size.equals( "twin" ) ) {
-            return 3;
-        } else {    // size.equals("suite")
-            return 4;
-        }
+        Map< String, Integer > RoomNumber = new HashMap<>();
+        RoomNumber.put( "single", 1 );
+        RoomNumber.put( "double", 2 );
+        RoomNumber.put( "twin", 3 );
+        RoomNumber.put( "suite", 4 );
+        return RoomNumber.get( size );
     }
 }

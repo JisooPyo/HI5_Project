@@ -52,9 +52,6 @@ public class BookProgram {
 
     private void bookingScreen ( Guest g ) {
         Booking b = booking.makeBooking( g );
-        booking.bookingList.add( b );
-        booking.mapBooking.put( b.idNumber, b );
-        booking.idNumber++;
         onProgram();
     }
 
